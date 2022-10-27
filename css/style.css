@@ -308,7 +308,12 @@ header .container .nav_bar_icon {
 
 /* Menu */
 
+.default_menu {
+    display: unset;
+}
+
 .menu {
+    /* display: none; */
     position: relative;
     width: 100%;
 }
@@ -664,7 +669,7 @@ footer .container .social_media {
         position: absolute;
         top: 0;
         left: 0;
-        background-image: linear-gradient(to right, white 80%, rgba(0, 0, 0, 0.205) 80%);
+        background-color: white;
         width: 100%;
         height: 300px;
     }
@@ -677,7 +682,6 @@ footer .container .social_media {
         gap: 0;
     }
     header .container .nav_bar ul li {
-        width: 80%;
         padding: 20px 0;
         position: relative;
     }
@@ -832,9 +836,6 @@ footer .container .social_media {
     }
     .contact .container .header_contact p {
         width: 100%;
-    }
-    .home .container .about_product .slider .slider_one p, h3 {
-        display: block;
     }
 
 
