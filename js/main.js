@@ -2,6 +2,7 @@
 
 let navBarIcon = document.querySelector("#nav_bar_icon");
 let navList = document.querySelector("#nav_bar_list");
+let product = document.querySelectorAll(".p1");
 
 navBarIcon.addEventListener("click", _ => {
     navList.classList.toggle("show");
@@ -11,3 +12,6 @@ navBarIcon.addEventListener("click", _ => {
         navBarIcon.setAttribute("src", "./images/icons/icon-close.svg");
     }
 })
+
+
+
