@@ -36,8 +36,25 @@
                 <img src="./images/icons/icon-menu.svg" alt="" id="nav_bar_icon">
             </div>
         </div>
+        <!-- shop items -->
+        <section class="shop_items" id="shop_items">
+            <div id="item_buy" class="item_buy">
+                <img src="./images/p1.png" alt="">
+                <div class="name_price">
+                    <h5>salamon sushi</h5>
+                    <p><span>1 x</span> $120.00</p>
+                </div>
+                <img src="./images/icons/icon-close.svg" alt="">
+            </div>
+            <strong class="total" id="total">Total : </strong>
+            <div class="buy_now">
+                <button>Buy Now</button>
+            </div>
+        </section>
+        <!-- end shop items -->
     </header>
     <!-- header end -->
+    
 
     <section class="menu">
         <div class="title">
@@ -47,25 +64,18 @@
             <div class="menu_select">
                 <div class="select">
                     <label for="chose">Select :</label>
-                    <select name="chose" id="chose">
-                        <optgroup label="categorie">
-                            <option value="Sushi" selected>Sushi</option>
-                            <option value="Ramen">Ramen</option>
-                            <option value="Miso">Miso</option>
+                    <select name="chose" id="chose" onchange="changed(this.value)">
+                        <optgroup label="categorie" >
+                            <option value="sushi" selected>Sushi</option>
+                            <option value="ramen">Ramen</option>
+                            <option value="miso">Miso</option>
                         </optgroup>
-                        
                     </select>
                 </div>
-                <div class="tri">
-                    <label for="tri">Tri par :</label>
-                    <select name="tri" id="tri">
-                        <option value="Sushi" selected>price</option>
-                        <option value="Ramen">Alphabitic</option>
-                    </select>
-                </div>
+                
             </div>
 
-            <div class="menu_items default_menu">
+            <div class="menu_items" id="sushi">
                 <div class="p1">
                     <div class="about_items">
                         <img src="./images/p1.png" alt="">
@@ -74,26 +84,26 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1"> 
                     <div class="about_items">
                         <img src="./images/p2.png" alt="">
                         <h4>Salamon Sushi</h4>
-                        <strong>$120.00</strong>
+                        <strong id="price">$120.00</strong>
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn" id="order_now">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -104,11 +114,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -119,11 +129,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -134,11 +144,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -149,11 +159,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -164,11 +174,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -179,11 +189,11 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
                 <div class="p1">
@@ -194,16 +204,294 @@
                     </div>
                     <div class="order_now">
                         <div class="inp">
-                            <button class="btn_minus">-</button>
-                            <input type="text" name="" id="">
-                            <button class="btn_plus">+</button>
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
                         </div>
-                        <p>Order Now</p>
+                        <button class="order_btn">Order Now</button>
                     </div>
                 </div>
-
             
             </div>
+
+
+            <div class="menu_items" id="ramen">
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1"> 
+                    <div class="about_items">
+                        <img src="./images/r2.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r3.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r2.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r3.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r2.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r3.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="menu_items" id="miso">
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/M1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1"> 
+                    <div class="about_items">
+                        <img src="./images/m2.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/m3.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/r1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/m4.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/M1.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/m2.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/m3.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="p1">
+                    <div class="about_items">
+                        <img src="./images/m4.png" alt="">
+                        <h4>Salamon Sushi</h4>
+                        <strong>$120.00</strong>
+                    </div>
+                    <div class="order_now">
+                        <div class="inp">
+                            <button class="btn_minus" id="minus">-</button>
+                            <input type="text" name="" id="quantite" placeholder="1">
+                            <button class="btn_plus" id="plus">+</button>
+                        </div>
+                        <button class="order_btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- end of menu -->
@@ -231,5 +519,5 @@
 
 </body>
 
-<script src="./js/main.js"></script>
+<script src="./js/main.js" type="module"></script>
 </html>

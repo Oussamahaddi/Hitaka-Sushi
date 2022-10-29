@@ -61,7 +61,66 @@ header .container .nav_bar_icon {
     display: none;
 }
 
-/* header end */
+header .container .shop {
+    position: relative;
+}
+
+
+
+.shop_items {
+    background-color: white;
+    width: fit-content;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 7rem;
+    top: 6rem;
+    z-index: 1000;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.shop_items > .item_buy {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: .5rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.shop_items .item_buy .name_price {
+    display: block;
+}
+.shop_items .item_buy .name_price p {
+    font-size: 14px;
+}
+
+.shop_items .item_buy img:nth-child(1) {
+    width: 60px;
+}
+.shop_items .item_buy h5 {
+    font-size: 12px;
+}
+.shop_items .buy_now button {
+    background-color: #C22832;
+    padding: .3rem .6rem;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.shop_items .total {
+    padding: 1rem 0;
+}
+.shop_items hr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
 
 /* welcome css */
 
@@ -309,11 +368,10 @@ header .container .nav_bar_icon {
 /* Menu */
 
 .default_menu {
-    display: unset;
+    display: flex !important;
 }
 
 .menu {
-    /* display: none; */
     position: relative;
     width: 100%;
 }
@@ -353,7 +411,7 @@ header .container .nav_bar_icon {
 
 .menu .container .menu_items {
     margin: 3rem 0;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 1rem;
@@ -394,9 +452,13 @@ header .container .nav_bar_icon {
     padding: 5px 0;
 }
 
-.menu .container .menu_items > .p1 > .order_now p {
-    font-weight: 600;
-    font-size: 12px;
+.menu .container .menu_items > .p1 > .order_now .order_btn {
+    background: #C22832;
+    width: fit-content;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 5px 5px;
 }
 
 .menu .container .menu_items > .p1 > .order_now input {
@@ -877,7 +939,10 @@ footer .container .social_media {
         width: 90%;
     }
 
-    
+    .shop_items {
+        top: 3.5rem;
+        right: 2.4rem;
+    }
 }
 
 
