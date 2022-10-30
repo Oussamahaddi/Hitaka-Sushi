@@ -65,11 +65,16 @@ header .container .shop {
     position: relative;
 }
 
+header .container .search_shop .shop img {
+    cursor: pointer;
+}
+
 
 
 .shop_items {
     background-color: white;
-    width: fit-content;
+    width: 300px;
+    height: 200px;
     padding: .5rem;
     display: flex;
     flex-direction: column;
@@ -80,6 +85,8 @@ header .container .shop {
     z-index: 1000;
     border: 1px solid #eee;
     border-radius: 5px;
+    overflow: scroll;
+    
 }
 
 .shop_items > .item_buy {
@@ -88,6 +95,8 @@ header .container .shop {
     gap: 1.5rem;
     padding: .5rem 0;
     border-bottom: 1px solid #ccc;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .shop_items .item_buy .name_price {
@@ -719,6 +728,14 @@ footer .container .social_media {
     text-align: center;
 }
 
+
+.close_img {
+    cursor: pointer;
+}
+
+.close_cart {
+    display: none !important;
+}
 
 
 @media (max-width: 689px) {

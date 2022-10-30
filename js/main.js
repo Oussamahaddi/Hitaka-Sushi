@@ -4,6 +4,8 @@
 
 let navBarIcon = document.querySelector("#nav_bar_icon");
 let navList = document.querySelector("#nav_bar_list");
+let cart = document.getElementById("menu_cart");
+let buy = document.getElementById("shop_items");
 
 navBarIcon.addEventListener("click", _ => {
     navList.classList.toggle("show");
@@ -12,6 +14,12 @@ navBarIcon.addEventListener("click", _ => {
     } else {
         navBarIcon.setAttribute("src", "./images/icons/icon-close.svg");
     }
+})
+
+// show menu cart
+
+cart.addEventListener("click", _ => {
+    buy.classList.toggle("close_cart");
 })
 
 
@@ -51,8 +59,12 @@ let minus = document.querySelectorAll("#minus");
 let orderNow = document.querySelectorAll(".order_btn");  // order now
     // all items
 let test = document.querySelector("#product_pic");
-let buy = document.getElementById("shop_items");
 let total = document.getElementById("total");
+
+
+
+
+let tt = 0;
 
 // add item to cart
 for (let i = 0; i < orderNow.length; i++) {
@@ -63,14 +75,19 @@ for (let i = 0; i < orderNow.length; i++) {
     btnPlus.addEventListener("click", increment);
     btnMinus.addEventListener("click", decrement);
 }
-
+let x = 0;
 function addClick(event) {
     let targetBtn = event.target;
     let parentBtn = targetBtn.parentElement.parentElement;
     let img = parentBtn.children[0].children[0].src;
     let name = parentBtn.children[0].children[1].textContent;
-    let q = parseInt(parentBtn.children[1].children[0].children[1].value);
-    let price = Math.round(parentBtn.children[0].children[2].textContent);
+    let q = parseFloat(parentBtn.children[1].children[0].children[1].value);
+    let price = parseFloat(parentBtn.children[0].children[2].textContent);
+    tt += q * price;
+
+    localStorage.setItem("name"+x, name);
+    x++;
+
     addItemToCart(img, name, q, price);
 }
 
@@ -78,15 +95,15 @@ function addItemToCart(img, name, q, price) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("item_buy");
     newDiv.innerHTML += `
-                    <img src="${img}" alt="">
-                    <div class="name_price">
-                        <h5>${name}</h5>
-                        <p>${q} x $${price}</p>
-                    </div>
-                    <img src="./images/icons/icon-close.svg" alt="" id="delet_items">
-            `;
+                            <img src="${img}" alt="">
+                            <div class="name_price">
+                                <h5>${name}</h5>
+                                <p>${q} x $${price}</p>
+                            </div>
+                            <img src="./images/icons/icon-close.svg" alt="" id="delet_items" class="close_img">
+                        `;
     buy.prepend(newDiv);
-
+    total.innerHTML = `Total : $${tt}`
 }
 
 function increment(e) {
@@ -110,16 +127,11 @@ let remove = document.querySelectorAll("#delet_items");
 
 for (let i = 0; i < remove.length; i++) {
     let delet = remove[i];
-
-    delet.addEventListener("click", removeItem);
+    delet.addEventListener("click", e => {
+        e.target.parentElement.remove();
+    });
 }
 
-function removeItem(e) {
-    let btn = e.target;
-    let item = btn.parentElement;
-
-    console.log(item)
-}
 
 
 
