@@ -39,12 +39,7 @@ arr.forEach(el => {
 
 // add element to shop
 
-let newObj = {
-    img: "",
-    name: "",
-    quantite: "",
-    price: "",
-};
+
 
 
     // inside shop icon
@@ -53,54 +48,78 @@ let addItem = document.querySelector("#item_buy");
     // menu
 let plus = document.querySelectorAll("#plus");
 let minus = document.querySelectorAll("#minus");
-let quantite = document.getElementById("quantite");
-let price = document.getElementById("price");
 let orderNow = document.querySelectorAll(".order_btn");  // order now
     // all items
-let allItem = document.querySelectorAll("#sushi");
 let test = document.querySelector("#product_pic");
-let buy = document.getElementById("add_element");
+let buy = document.getElementById("shop_items");
+let total = document.getElementById("total");
 
+// add item to cart
+for (let i = 0; i < orderNow.length; i++) {
+    let btn = orderNow[i];
+    let btnPlus = plus[i];
+    let btnMinus = minus[i];
+    btn.addEventListener("click", addClick);
+    btnPlus.addEventListener("click", increment);
+    btnMinus.addEventListener("click", decrement);
+}
 
+function addClick(event) {
+    let targetBtn = event.target;
+    let parentBtn = targetBtn.parentElement.parentElement;
+    let img = parentBtn.children[0].children[0].src;
+    let name = parentBtn.children[0].children[1].textContent;
+    let q = parseInt(parentBtn.children[1].children[0].children[1].value);
+    let price = Math.round(parentBtn.children[0].children[2].textContent);
+    addItemToCart(img, name, q, price);
+}
 
-orderNow.forEach(el => {
-    el.addEventListener("click", e => {
-
-        //newObj.img = e.target.parentNode.parentNode
-
-        newObj.img = e.target.parentNode.parentNode.children[0].children[0].src;
-        newObj.name = e.target.parentNode.parentNode.children[0].children[1].textContent;
-        newObj.quantite = e.target.parentNode.parentNode.children[1].children[0].children[1].value;
-        newObj.price = e.target.parentNode.parentNode.children[0].children[2].textContent;
-        buy.innerHTML += `
-                <div class="item_buy">
-                    <img src="${newObj.img}" alt="">
+function addItemToCart(img, name, q, price) {
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("item_buy");
+    newDiv.innerHTML += `
+                    <img src="${img}" alt="">
                     <div class="name_price">
-                        <h5>${newObj.name}</h5>
-                        <p>${newObj.quantite} x ${newObj.price}</p>
+                        <h5>${name}</h5>
+                        <p>${q} x $${price}</p>
                     </div>
                     <img src="./images/icons/icon-close.svg" alt="" id="delet_items">
-                </div>
             `;
-            
+    buy.prepend(newDiv);
 
-    })
-});
+}
 
+function increment(e) {
+    let targetPlus = e.target;
+    let inp = targetPlus.parentElement;
+    inp.children[1].value++;
+}
 
-    // plus.forEach(ele => {
-    //     ele.addEventListener("click", e => {
-    //         console.log(e.target)
-    //     })
-    // });
-    // minus.forEach(ele => {
-    //     ele.addEventListener("click", e => {
-    //         console.log(e.target.parentNode.parentNode.parentNode)
-    //     })
-    // });
+function decrement(e) {
+    let targetMinus = e.target;
+    let inp = targetMinus.parentElement;
+    parseInt(inp.children[1].value--)
+    if (parseInt(inp.children[1].value) <= 0) {
+        inp.children[1].value = 1;
+    }
+}
 
+// remove items from cart
 
+let remove = document.querySelectorAll("#delet_items");
 
+for (let i = 0; i < remove.length; i++) {
+    let delet = remove[i];
+
+    delet.addEventListener("click", removeItem);
+}
+
+function removeItem(e) {
+    let btn = e.target;
+    let item = btn.parentElement;
+
+    console.log(item)
+}
 
 
 
