@@ -46,36 +46,58 @@ let newObj = {
     price: "",
 };
 
+
     // inside shop icon
 let shop = document.querySelector("#shop_items");
 let addItem = document.querySelector("#item_buy");
     // menu
 let plus = document.querySelectorAll("#plus");
 let minus = document.querySelectorAll("#minus");
-let quantite = parseInt(document.getElementById("quantite"));
+let quantite = document.getElementById("quantite");
 let price = document.getElementById("price");
 let orderNow = document.querySelectorAll(".order_btn");  // order now
     // all items
 let allItem = document.querySelectorAll("#sushi");
+let test = document.querySelector("#product_pic");
+let buy = document.getElementById("add_element");
 
-for (let i = 0; i < allItem.length; i++) {
-    orderNow.forEach(el => {
-        el.addEventListener("click", e => {
-            console.log(e.target)
-        })
-    });
-    plus.forEach(ele => {
-        ele.addEventListener("click", e => {
-            console.log(e.target)
-        })
-    });
-    minus.forEach(ele => {
-        ele.addEventListener("click", e => {
-            console.log(quantite.value)
+
+
+orderNow.forEach(el => {
+    el.addEventListener("click", e => {
+
+        //newObj.img = e.target.parentNode.parentNode
+
+        newObj.img = e.target.parentNode.parentNode.children[0].children[0].src;
+        newObj.name = e.target.parentNode.parentNode.children[0].children[1].textContent;
+        newObj.quantite = e.target.parentNode.parentNode.children[1].children[0].children[1].value;
+        newObj.price = e.target.parentNode.parentNode.children[0].children[2].textContent;
+        buy.innerHTML += `
+                <div class="item_buy">
+                    <img src="${newObj.img}" alt="">
+                    <div class="name_price">
+                        <h5>${newObj.name}</h5>
+                        <p>${newObj.quantite} x ${newObj.price}</p>
+                    </div>
+                    <img src="./images/icons/icon-close.svg" alt="" id="delet_items">
+                </div>
+            `;
             
-        })
-    });
-}
+
+    })
+});
+
+
+    // plus.forEach(ele => {
+    //     ele.addEventListener("click", e => {
+    //         console.log(e.target)
+    //     })
+    // });
+    // minus.forEach(ele => {
+    //     ele.addEventListener("click", e => {
+    //         console.log(e.target.parentNode.parentNode.parentNode)
+    //     })
+    // });
 
 
 

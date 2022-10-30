@@ -804,7 +804,8 @@ footer .container .social_media {
     .home .container .about_product .slider {
         width: 60%;
     }
-    .home .container .about_product .slider .slider_one p, h3 {
+    .home .container .about_product .slider .slider_one p,
+    .home .container .about_product .slider .slider_one h3  {
         display: none;
     }
     .home .container .best_plat .best_plat_content {
