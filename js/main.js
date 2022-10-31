@@ -61,8 +61,7 @@ let orderNow = document.querySelectorAll(".order_btn");  // order now
 let test = document.querySelector("#product_pic");
 let total = document.getElementById("total");
 
-
-
+let orders = [];
 
 let tt = 0;
 
@@ -75,35 +74,56 @@ for (let i = 0; i < orderNow.length; i++) {
     btnPlus.addEventListener("click", increment);
     btnMinus.addEventListener("click", decrement);
 }
-let x = 0;
+
+// function that get elements that need when click on button "order now"
 function addClick(event) {
+    // get all item that i need from contianer "img, name, price, quantite"
     let targetBtn = event.target;
     let parentBtn = targetBtn.parentElement.parentElement;
     let img = parentBtn.children[0].children[0].src;
     let name = parentBtn.children[0].children[1].textContent;
     let q = parseFloat(parentBtn.children[1].children[0].children[1].value);
-    let price = parseFloat(parentBtn.children[0].children[2].textContent);
-    tt += q * price;
+    let price = parseFloat(parentBtn.children[0].children[2].innerHTML.replace("$", ""));
+    
+    // create objet to store items
+    let cartItem = {imgItem: img ,nameItem: name, priceItem: price, quantiteItem:q};
 
-    localStorage.setItem("name"+x, name);
-    x++;
+    tt += (q * price * 100) / 100;  // calc total price of all item
 
-    addItemToCart(img, name, q, price);
+    orders.push(cartItem); // push objet inside array
+
+    addItemToCart(cartItem.imgItem, cartItem.nameItem, cartItem.quantiteItem, cartItem.priceItem);
+
+    for (let i = 1; i < orders.length; i++) {
+        localStorage.setItem(i, cartItem);
+    }
+
 }
 
+// function that add element to cart
 function addItemToCart(img, name, q, price) {
+    // create new div where to store item that you want to order
     let newDiv = document.createElement("div");
+    // add class and html to div
     newDiv.classList.add("item_buy");
-    newDiv.innerHTML += `
+    newDiv.innerHTML = `
                             <img src="${img}" alt="">
                             <div class="name_price">
                                 <h5>${name}</h5>
                                 <p>${q} x $${price}</p>
                             </div>
-                            <img src="./images/icons/icon-close.svg" alt="" id="delet_items" class="close_img">
+                            
+                                <img src="./images/icons/icon-close.svg" alt="" id="delet_items" class="close_img">
+                            
                         `;
+    // add newDiv to parent
     buy.prepend(newDiv);
-    total.innerHTML = `Total : $${tt}`
+    total.innerHTML = `Total : $${tt}`;
+    let removeItem = document.getElementById("delet_items");
+
+    removeItem.addEventListener("click", e => {
+        e.target.parentElement.remove();
+    })
 }
 
 function increment(e) {
@@ -121,15 +141,8 @@ function decrement(e) {
     }
 }
 
-// remove items from cart
+function updateCart() {
 
-let remove = document.querySelectorAll("#delet_items");
-
-for (let i = 0; i < remove.length; i++) {
-    let delet = remove[i];
-    delet.addEventListener("click", e => {
-        e.target.parentElement.remove();
-    });
 }
 
 

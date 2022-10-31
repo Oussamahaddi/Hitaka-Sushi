@@ -85,7 +85,7 @@ header .container .search_shop .shop img {
     z-index: 1000;
     border: 1px solid #eee;
     border-radius: 5px;
-    overflow: scroll;
+    overflow-y: scroll;
     
 }
 
