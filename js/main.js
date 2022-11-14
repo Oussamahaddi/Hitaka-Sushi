@@ -123,6 +123,7 @@ function addItemToCart(img, name, q, price) {
 
     removeItem.addEventListener("click", e => {
         e.target.parentElement.remove();
+        
     })
 }
 
