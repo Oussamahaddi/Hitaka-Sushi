@@ -38,7 +38,6 @@ let arr = [sushi,ramen,miso]
 
 sushi.style.display = "flex";
 
-
 arr.forEach(el => {
     selectBox.addEventListener("change" , e => {
         let selectedElement = document.getElementById(e.target.value);
@@ -62,6 +61,8 @@ let test = document.querySelector("#product_pic");
 let total = document.getElementsByClassName("total")[0];
 
 let tt = 0;
+
+let arrItemName = [];
 
 // add item to cart
 for (let i = 0; i < orderNow.length; i++) {
@@ -101,22 +102,14 @@ function addItemToCart(img, name, q, price) {
             <img src="${img}" alt="">
             <div class="name_price">
                 <h5>${name}</h5>
-                <p>$${(price * q * 100) / 100}</p>
+                <p>$${(price * q).toFixed(2)}</p>
             </div>
             <img src="./images/icons/icon-close.svg" alt="" id="delet_items" class="close_img">
         `;
     // add newDiv to parent
     buy.prepend(newDiv);
 
-    total.innerHTML = `Total: $${tt}`;
-
-    let itemName = newDiv.querySelectorAll("h5");
-
-    for (let i = 0; i < itemName.length; i++) {
-        if (itemName[i].innerHTML == name) {
-            
-        }
-    }
+    total.innerHTML = `Total: $${tt.toFixed(2)}`;
 
     // remove items
     let removeItem = document.getElementsByClassName("close_img");
