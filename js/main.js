@@ -62,8 +62,6 @@ let total = document.getElementsByClassName("total")[0];
 
 let tt = 0;
 
-let arrItemName = [];
-
 // add item to cart
 for (let i = 0; i < orderNow.length; i++) {
     let btn = orderNow[i];
@@ -101,7 +99,7 @@ function addItemToCart(img, name, q, price) {
         `
             <img src="${img}" alt="">
             <div class="name_price">
-                <h5>${name}</h5>
+                <h5>${name} x ${q}</h5>
                 <p>$${(price * q).toFixed(2)}</p>
             </div>
             <img src="./images/icons/icon-close.svg" alt="" id="delet_items" class="close_img">

@@ -645,6 +645,7 @@ header .container .search_shop .shop img {
     align-items: center;
     gap: 2rem;
     color: #525252;
+    height: 100%;
 }
 
 .contact .container .header_contact  h3 {
@@ -652,7 +653,12 @@ header .container .search_shop .shop img {
 }
 
 .contact .container .header_contact p {
-    width: 70%;
+    width: 90%;
+}
+
+.contact .container .header_contact .contact_img {
+    height: 60%;
+    width: 80%;
 }
 
 .contact .container .inp form input, textarea {
@@ -701,14 +707,21 @@ footer {
     background-color: #525252;
     color: white;
     height: 100px;
+    box-shadow: 0 -3px 3px #ccc;
 }
 
 footer .container {
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
-    box-shadow: 0 -3px 3px #ccc;
+    width: 90%;
+}
+
+footer .container .tel {
+    display: grid;
+    gap: .5rem;
+    color: rgb(231, 231, 231);
 }
 
 footer .container .copyright {
@@ -976,6 +989,8 @@ footer .container .social_media {
     /* footer */
     footer {
         height: fit-content;
+        display: flex;
+        justify-content: center;
     }
     footer .container {
         flex-direction: column;
@@ -983,9 +998,12 @@ footer .container .social_media {
         gap: 1rem;
         padding: 0 0 1rem 0;
     }
+    footer .container .tel {
+        width: 80%;
+    }
     footer .container .copyright {
         height: 100%;
-        width: 60%;
+        width: 90%;
         padding: 1rem 0;
         gap: 1rem;
     }
